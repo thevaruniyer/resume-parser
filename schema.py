@@ -186,3 +186,41 @@ class ResumeRecord(BaseModel):
 
     # --- Provenance (mandatory) ---
     meta: MetaBlock
+
+
+# ---------------------------------------------------------------------------
+# Extraction-only payload — passed as response_schema to LLM
+# ---------------------------------------------------------------------------
+
+class ResumeExtractPayload(BaseModel):
+    """
+    Extraction payload for LLM response_schema.
+
+    Identical to ResumeRecord minus `meta` and `derived` — those are
+    pipeline-generated, not LLM-extracted.  Gemini fills this in; the
+    pipeline layer wraps it with MetaBlock to produce a ResumeRecord.
+    """
+    full_name: Optional[str] = None
+    first_name: Optional[str] = None
+    middle_name: Optional[str] = None
+    last_name: Optional[str] = None
+    emails: list[str] = Field(default_factory=list)
+    phones: list[str] = Field(default_factory=list)
+    location: Optional[Location] = None
+    date_of_birth: Optional[str] = None
+    gender: Optional[str] = None
+    nationality: Optional[str] = None
+    marital_status: Optional[str] = None
+    has_photo: bool = False
+    links: Optional[Links] = None
+    languages_known: list[Language] = Field(default_factory=list)
+    summary_objective: Optional[str] = None
+    education: list[Education] = Field(default_factory=list)
+    qualifications: list[Qualification] = Field(default_factory=list)
+    work_experience: list[WorkExperience] = Field(default_factory=list)
+    articleship_internships: list[ArticleshipInternship] = Field(default_factory=list)
+    skills: list[Skill] = Field(default_factory=list)
+    projects: list[Project] = Field(default_factory=list)
+    achievements_awards: list[str] = Field(default_factory=list)
+    publications: list[str] = Field(default_factory=list)
+    extracurriculars: list[str] = Field(default_factory=list)
