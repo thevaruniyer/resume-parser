@@ -1,0 +1,61 @@
+{
+  "_notes": "Garbled OCR-extracted text. No name identifiable. Qualifications and education extractable.",
+  "full_name": null,
+  "emails": [],
+  "phones": [],
+  "education": [
+    {
+      "degree": "MBA",
+      "specialization": "Executive Leadership",
+      "institution": "University of Texas",
+      "start_date": "2016",
+      "end_date": "2018",
+      "status": "completed"
+    },
+    {
+      "degree": "Bachelor of Science",
+      "specialization": "Accounting",
+      "institution": "Richland College",
+      "start_date": "2005",
+      "end_date": "2008",
+      "status": "completed"
+    }
+  ],
+  "qualifications": [
+    {
+      "name": "CMA",
+      "body": null,
+      "status": "cleared"
+    },
+    {
+      "name": "CPA",
+      "body": "American Institute of Banking",
+      "status": "cleared"
+    }
+  ],
+  "work_experience": [],
+  "skills": [
+    {"name": "QuickBooks"},
+    {"name": "ERP"},
+    {"name": "SAP"},
+    {"name": "Oracle"},
+    {"name": "Hyperion"},
+    {"name": "MS Office"},
+    {"name": "SQL"},
+    {"name": "IBM Cognos"}
+  ],
+  "languages_known": [
+    {"language": "English", "proficiency": "native"},
+    {"language": "German"},
+    {"language": "Spanish", "proficiency": "full professional proficiency"},
+    {"language": "French", "proficiency": "limited working proficiency"}
+  ],
+  "meta": {
+    "source_file": "sample_01_Accountant.txt",
+    "source_path": "test_corpus/files/sample_01_Accountant.txt",
+    "file_type": "txt",
+    "parse_timestamp": "GROUND_TRUTH",
+    "needs_review": true,
+    "review_reasons": ["no_name_found", "garbled_text_layer"]
+  }
+}

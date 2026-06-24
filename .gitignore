@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.pyc
+test_corpus/
+.env
+.env
+*.pyc
+*.pyc

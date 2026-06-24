@@ -1,0 +1,141 @@
+{
+  "_notes": "Synthetic Indian CA resume. All fields hand-crafted. Primary test case for CA-specific schema fields: ICAI membership, articleship, CA Final status.",
+  "full_name": "Rahul Mehta",
+  "first_name": "Rahul",
+  "last_name": "Mehta",
+  "emails": ["rahul.mehta@example.com"],
+  "phones": ["+91-98765-43210"],
+  "location": {
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "country": "India"
+  },
+  "links": {
+    "linkedin": "linkedin.com/in/rahulmehta-ca"
+  },
+  "summary_objective": "Chartered Accountant with 3 years of articleship at Big-4 firm. Specialisation in statutory audit, direct taxation, and GST advisory. Cleared CA Final in November 2023 attempt (both groups). Currently seeking a role in financial advisory or audit.",
+  "qualifications": [
+    {
+      "name": "CA",
+      "body": "ICAI",
+      "level": "Final",
+      "membership_number": "123456",
+      "attempts": 2,
+      "date_cleared": "2023-11",
+      "status": "cleared"
+    },
+    {
+      "name": "CA",
+      "body": "ICAI",
+      "level": "Intermediate",
+      "attempts": 1,
+      "date_cleared": "2021-05",
+      "status": "cleared"
+    },
+    {
+      "name": "CA",
+      "body": "ICAI",
+      "level": "Foundation",
+      "attempts": 1,
+      "date_cleared": "2019-12",
+      "status": "cleared"
+    }
+  ],
+  "articleship_internships": [
+    {
+      "firm_or_org": "Deloitte Haskins & Sells LLP",
+      "role": "Article Assistant",
+      "start_date": "2021-01",
+      "end_date": "2023-12",
+      "duration_months": 36,
+      "areas": [
+        "Statutory Audit",
+        "Tax Audit",
+        "GST Compliance",
+        "Direct Taxation",
+        "Transfer Pricing",
+        "Internal Audit",
+        "Company Law"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.Com (Hons)",
+      "institution": "University of Mumbai",
+      "board_or_university": "University of Mumbai",
+      "start_date": "2017",
+      "end_date": "2020",
+      "status": "completed",
+      "grade_type": "percentage",
+      "grade_value": "78"
+    },
+    {
+      "degree": "HSC",
+      "specialization": "Commerce",
+      "institution": null,
+      "board_or_university": "Maharashtra State Board",
+      "start_date": "2015",
+      "end_date": "2017",
+      "status": "completed",
+      "grade_type": "percentage",
+      "grade_value": "85"
+    },
+    {
+      "degree": "SSC",
+      "board_or_university": "Maharashtra State Board",
+      "end_date": "2015",
+      "status": "completed",
+      "grade_type": "percentage",
+      "grade_value": "91"
+    }
+  ],
+  "work_experience": [
+    {
+      "company": "Deloitte Haskins & Sells LLP",
+      "designation": "Article Assistant",
+      "employment_type": "intern",
+      "location": {"city": "Mumbai", "state": "Maharashtra"},
+      "start_date": "2021-01",
+      "end_date": "2023-12",
+      "is_current": false,
+      "responsibilities": [
+        "Conducted statutory audits for listed and unlisted companies",
+        "Prepared tax audit reports under Section 44AB of Income Tax Act",
+        "Assisted in GST reconciliation and filing (GSTR-1, GSTR-3B, GSTR-9)",
+        "Reviewed internal controls and prepared audit observations",
+        "Assisted in transfer pricing documentation for multinational clients"
+      ]
+    }
+  ],
+  "skills": [
+    {"name": "Tally ERP 9", "category": "technical"},
+    {"name": "SAP FICO", "category": "technical"},
+    {"name": "MS Excel", "category": "technical", "proficiency": "advanced"},
+    {"name": "IRIS", "category": "technical"},
+    {"name": "GST portal", "category": "technical"},
+    {"name": "Statutory Audit", "category": "domain"},
+    {"name": "Tax Audit", "category": "domain"},
+    {"name": "GST", "category": "domain"},
+    {"name": "Direct Tax", "category": "domain"},
+    {"name": "Transfer Pricing", "category": "domain"},
+    {"name": "IFRS/Ind AS", "category": "domain"}
+  ],
+  "achievements_awards": [
+    "All India Rank 42 in CA Intermediate (May 2021)",
+    "Represented college at inter-college commerce fest (2019)"
+  ],
+  "languages_known": [
+    {"language": "English", "proficiency": "Fluent"},
+    {"language": "Hindi", "proficiency": "Native"},
+    {"language": "Marathi", "proficiency": "Native"}
+  ],
+  "meta": {
+    "source_file": "sample_ca_india_synthetic.txt",
+    "source_path": "test_corpus/files/sample_ca_india_synthetic.txt",
+    "file_type": "txt",
+    "parse_timestamp": "GROUND_TRUTH",
+    "needs_review": false,
+    "review_reasons": []
+  }
+}

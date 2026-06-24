@@ -1,0 +1,65 @@
+{
+  "_notes": "Template-style resume. Name: Howard Gerrard. Contact details appear to be placeholders (dayjob.com).",
+  "full_name": "Howard Gerrard",
+  "first_name": "Howard",
+  "last_name": "Gerrard",
+  "emails": ["info@dayjob.com"],
+  "phones": ["0123 456 7890"],
+  "links": {
+    "linkedin": "linkedinname"
+  },
+  "education": [
+    {
+      "degree": null,
+      "institution": "University",
+      "start_date": "2010",
+      "end_date": "2013",
+      "status": "completed"
+    }
+  ],
+  "work_experience": [
+    {
+      "company": "Company Name",
+      "designation": "Accountant",
+      "start_date": "2016",
+      "end_date": null,
+      "is_current": true
+    },
+    {
+      "company": "Company Name",
+      "designation": "Accountant",
+      "start_date": "2015",
+      "end_date": "2016",
+      "is_current": false
+    },
+    {
+      "company": "Company Name",
+      "designation": "Accountant",
+      "start_date": "2014",
+      "end_date": "2015",
+      "is_current": false
+    },
+    {
+      "company": "Company Name",
+      "designation": "Accountant",
+      "start_date": "2008",
+      "end_date": "2014",
+      "is_current": false
+    }
+  ],
+  "skills": [
+    {"name": "Accounts"},
+    {"name": "Tax Returns"},
+    {"name": "Payroll"},
+    {"name": "VAT Returns"},
+    {"name": "MS Word"}
+  ],
+  "meta": {
+    "source_file": "sample_02_Accountant.txt",
+    "source_path": "test_corpus/files/sample_02_Accountant.txt",
+    "file_type": "txt",
+    "parse_timestamp": "GROUND_TRUTH",
+    "needs_review": true,
+    "review_reasons": ["placeholder_contact_details", "generic_company_names"]
+  }
+}

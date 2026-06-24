@@ -1,0 +1,75 @@
+{
+  "_notes": "Kevin Frank, Senior Accountant. US-based. Identifiable name, phone, location, and education.",
+  "full_name": "Kevin Frank",
+  "first_name": "Kevin",
+  "last_name": "Frank",
+  "emails": ["info@resumekraft.com"],
+  "phones": ["2025550120"],
+  "location": {
+    "city": "Chicago",
+    "state": "Illinois",
+    "country": "US"
+  },
+  "links": {
+    "linkedin": "linkedin.com/resumekraft"
+  },
+  "summary_objective": "Experienced accountant with nine years of record in billing, collections combined with solid understanding of legal procedures and legislation.",
+  "education": [
+    {
+      "degree": "Bachelor of Commerce",
+      "institution": "San Jose State University",
+      "end_date": "2010",
+      "status": "completed"
+    },
+    {
+      "degree": "MBA",
+      "institution": "Northeastern University",
+      "start_date": "2020-01",
+      "status": "completed"
+    },
+    {
+      "degree": "Career Certificate in Accounting",
+      "institution": "American University Cairo",
+      "start_date": "2020-02",
+      "status": "pursuing"
+    }
+  ],
+  "qualifications": [
+    {
+      "name": "QFA",
+      "body": null,
+      "status": "cleared",
+      "date_cleared": "2018-01"
+    }
+  ],
+  "work_experience": [
+    {
+      "company": "Mediterraneo Group",
+      "designation": "Senior Accountant",
+      "start_date": "2020-01",
+      "is_current": true
+    },
+    {
+      "company": "Mediterraneo Group",
+      "designation": "Bank Accountant",
+      "start_date": "2018-09",
+      "end_date": "2019-12",
+      "is_current": false
+    }
+  ],
+  "skills": [
+    {"name": "Microsoft Office"},
+    {"name": "ERP Systems"},
+    {"name": "PeachTree"},
+    {"name": "QuickBooks"},
+    {"name": "Odoo"}
+  ],
+  "meta": {
+    "source_file": "sample_03_Accountant.txt",
+    "source_path": "test_corpus/files/sample_03_Accountant.txt",
+    "file_type": "txt",
+    "parse_timestamp": "GROUND_TRUTH",
+    "needs_review": false,
+    "review_reasons": []
+  }
+}

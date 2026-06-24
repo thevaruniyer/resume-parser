@@ -1,0 +1,42 @@
+[project]
+name = "resume-parser"
+version = "0.1.0"
+description = "Resume parsing pipeline: OneDrive → LLM extraction → Excel"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "datasets>=5.0.0",
+    "google-genai>=1.0.0",
+    "huggingface-hub>=1.19.0",
+    "openpyxl>=3.1.0",
+    "pillow>=10.0.0",
+    "pydantic>=2.0.0",
+    "python-docx>=1.1.0",
+    "python-dotenv>=1.0.0",
+    "reportlab>=4.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=5.0.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["connectors", "routing", "extraction", "normalize", "validate", "output"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
+]

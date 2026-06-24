@@ -1,0 +1,83 @@
+{
+  "_notes": "Olivia Ogilvy, CPA. US-based. Template email. CFA qualification from AIMR. Multiple work experiences.",
+  "full_name": "Olivia Ogilvy",
+  "first_name": "Olivia",
+  "last_name": "Ogilvy",
+  "emails": ["email@email.com"],
+  "phones": [],
+  "location": {
+    "city": "Los Angeles",
+    "state": "CA",
+    "country": "United States"
+  },
+  "nationality": "American",
+  "links": {
+    "linkedin": null,
+    "other": ["twitter", "facebook"]
+  },
+  "education": [
+    {
+      "degree": "CFA",
+      "institution": "AIMR",
+      "body_or_university": "Association for Investment Management and Research",
+      "start_date": "2016-04",
+      "end_date": "2016-08",
+      "status": "completed"
+    }
+  ],
+  "qualifications": [
+    {
+      "name": "CPA",
+      "status": "cleared"
+    },
+    {
+      "name": "CFA",
+      "body": "AIMR",
+      "status": "cleared"
+    }
+  ],
+  "work_experience": [
+    {
+      "company": "BZG Bank",
+      "designation": "Accountant III",
+      "employment_type": "full_time",
+      "location": {"city": "Los Angeles"},
+      "start_date": "2013-01",
+      "end_date": "2017-03",
+      "is_current": false,
+      "responsibilities": [
+        "Implemented cash conversion model for six branches and ten ATMs, saving $40,000/year",
+        "Oversaw financial reporting and accounting functions",
+        "Managed team of 4 accounting clerks"
+      ]
+    },
+    {
+      "company": "H2O Manufacturing",
+      "designation": "Accountant II",
+      "location": {"city": "Tampa"},
+      "start_date": "2011-01",
+      "end_date": "2012-12",
+      "is_current": false,
+      "responsibilities": [
+        "Prepared journal entries, reconciliations, and trend analyses"
+      ]
+    },
+    {
+      "company": "Cobb Associates",
+      "designation": "Accountant",
+      "location": {"city": "San Diego"},
+      "is_current": false,
+      "responsibilities": [
+        "Retrieved $100,000 overdue receivables in less than three months"
+      ]
+    }
+  ],
+  "meta": {
+    "source_file": "sample_04_Accountant.txt",
+    "source_path": "test_corpus/files/sample_04_Accountant.txt",
+    "file_type": "txt",
+    "parse_timestamp": "GROUND_TRUTH",
+    "needs_review": false,
+    "review_reasons": []
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "_notes": "Stephen Greet, CPA Senior Accountant. 9 years experience. Clean US resume with identifiable fields.",
+  "full_name": "Stephen Greet",
+  "first_name": "Stephen",
+  "last_name": "Greet",
+  "emails": ["stephen@beamjobs.com"],
+  "phones": ["123 4567890"],
+  "location": {
+    "city": "Brooklyn",
+    "state": "NY"
+  },
+  "links": {
+    "linkedin": null
+  },
+  "summary_objective": "Senior accountant with 9 years of experience establishing best accounting practices at quickly growing tech companies.",
+  "qualifications": [
+    {
+      "name": "CPA",
+      "status": "cleared"
+    }
+  ],
+  "education": [
+    {
+      "degree": "MBA",
+      "specialization": "Accounting",
+      "institution": "University of Pittsburgh",
+      "location": {"city": "Pittsburgh", "state": "PA"},
+      "end_date": "2012",
+      "status": "completed"
+    },
+    {
+      "degree": "Bachelor of Arts",
+      "specialization": "Accounting",
+      "institution": "University of Pittsburgh",
+      "location": {"city": "Pittsburgh", "state": "PA"},
+      "end_date": "2010",
+      "status": "completed"
+    }
+  ],
+  "work_experience": [
+    {
+      "company": "Teachers Pay Teachers",
+      "designation": "Senior Accountant",
+      "location": {"city": "New York", "state": "NY"},
+      "start_date": "2016-07",
+      "end_date": null,
+      "is_current": true,
+      "responsibilities": [
+        "Established best practices for revenue recognition compliance (ASC 606)",
+        "Built processes for monthly and quarterly filing of sales tax returns",
+        "Oversaw balance sheet across all accounts",
+        "Led team of 2 junior accountants"
+      ]
+    },
+    {
+      "company": null,
+      "designation": "Accountant",
+      "location": {"city": "New York", "state": "NY"},
+      "start_date": "2011-06",
+      "end_date": "2016-06",
+      "is_current": false,
+      "responsibilities": [
+        "Maintained company general ledger and monthly close processes",
+        "Developed and executed internal controls"
+      ]
+    }
+  ],
+  "skills": [
+    {"name": "QuickBooks"},
+    {"name": "TaxJar"},
+    {"name": "GAAP"},
+    {"name": "Accounts Payable"},
+    {"name": "Accounts Receivable"},
+    {"name": "Financial Reporting"},
+    {"name": "Tax Accounting"},
+    {"name": "Expense Reporting"}
+  ],
+  "meta": {
+    "source_file": "sample_05_Accountant.txt",
+    "source_path": "test_corpus/files/sample_05_Accountant.txt",
+    "file_type": "txt",
+    "parse_timestamp": "GROUND_TRUTH",
+    "needs_review": false,
+    "review_reasons": []
+  }
+}
