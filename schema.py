@@ -125,6 +125,7 @@ class MetaBlock(BaseModel):
     field_confidences: dict[str, float] = Field(default_factory=dict)
     needs_review: bool = False
     review_reasons: list[str] = Field(default_factory=list)
+    dedup_key: Optional[str] = None  # SHA1 of email/phone/name+dob priority chain
 
     @field_validator("overall_confidence")
     @classmethod

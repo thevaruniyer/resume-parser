@@ -24,7 +24,9 @@ if str(ROOT) not in sys.path:
 
 from config import settings
 from extraction.gemini_extractor import GeminiExtractor
+from normalize import normalize_record
 from schema import MetaBlock, ResumeExtractPayload, ResumeRecord
+from validate import validate_record
 
 _IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp", ".tiff", ".tif", ".heic", ".gif"}
 _TEXT_EXTS = {".txt"}
@@ -57,6 +59,7 @@ def run(file_path: str) -> None:
 
     ext = path.suffix.lower()
     extractor = GeminiExtractor(api_key=settings.gemini_api_key)
+    source_text: str | None = None
 
     # --- determine extraction path ---
     if ext in _IMAGE_EXTS:
@@ -67,6 +70,7 @@ def run(file_path: str) -> None:
         text = extract_pdf_text(path)
         if len(text.strip()) > 50:
             path_taken = "text"
+            source_text = text
             raw = extractor.extract(schema=ResumeExtractPayload, text=text)
         else:
             # Empty/garbled text layer → fall back to vision
@@ -76,11 +80,13 @@ def run(file_path: str) -> None:
     elif ext == _DOCX_EXT:
         text = extract_docx_text(path)
         path_taken = "text"
+        source_text = text
         raw = extractor.extract(schema=ResumeExtractPayload, text=text)
 
     elif ext in _TEXT_EXTS:
         text = path.read_text(encoding="utf-8")
         path_taken = "text"
+        source_text = text
         raw = extractor.extract(schema=ResumeExtractPayload, text=text)
 
     else:
@@ -104,6 +110,8 @@ def run(file_path: str) -> None:
     })
 
     output = record.model_dump()
+    output = normalize_record(output)
+    output = validate_record(output, source_text=source_text)
     output["_cost"] = {
         "prompt_tokens": usage.get("prompt_tokens"),
         "output_tokens": usage.get("output_tokens"),
