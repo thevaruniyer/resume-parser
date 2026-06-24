@@ -1,0 +1,7 @@
+{
+  "_comment": "Phase 2 routing ground truth — low-DPI phone screenshot JPG",
+  "expected_routing_path": "vision",
+  "expected_routing_reason_contains": "image_format",
+  "expected_dead_letter": false,
+  "notes": "JPEG image file (96dpi, quality=55). Any image extension routes directly to vision without further analysis."
+}

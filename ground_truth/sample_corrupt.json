@@ -1,0 +1,7 @@
+{
+  "_comment": "Phase 2 routing ground truth — zero-byte corrupt PDF",
+  "expected_routing_path": "dead_letter",
+  "expected_dead_letter": true,
+  "expected_dead_letter_reason_contains": "zero_byte",
+  "notes": "Empty file (0 bytes). Guard check in FileRouter catches st_size == 0 before attempting PDF parsing."
+}

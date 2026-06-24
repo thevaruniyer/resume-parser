@@ -1,0 +1,7 @@
+{
+  "_comment": "Phase 2 routing ground truth — garbled Unicode text layer PDF",
+  "expected_routing_path": "vision",
+  "expected_routing_reason_contains": "garbled",
+  "expected_dead_letter": false,
+  "notes": "PDF whose text layer consists of combining diacritical marks and Hebrew/Arabic codepoints with no spaces. Space ratio is 0.0, far below the 0.02 threshold, so text_quality_ok returns False → garbled path → vision."
+}

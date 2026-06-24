@@ -252,6 +252,9 @@ class TestCorpusDiscoverable:
 
     def test_corpus_files_are_nonempty(self):
         for f in CORPUS_FILES.iterdir():
+            # Intentionally-corrupt fixture is the only allowed zero-byte file
+            if "corrupt" in f.name:
+                continue
             assert f.stat().st_size > 0, f"Corpus file is empty: {f.name}"
 
 
@@ -279,10 +282,16 @@ class TestGroundTruthDiscoverable:
         assert len(ca_labels) >= 1, "No Indian CA ground-truth label found"
 
     def test_ground_truth_labels_have_meta(self):
-        """Every label file must have a meta block (mirrors ResumeRecord contract)."""
+        """Content label files must have a meta block (mirrors ResumeRecord contract).
+
+        Phase 2 routing labels (identified by 'expected_routing_path' key) are a
+        different schema — they capture routing expectations, not ResumeRecord data.
+        """
         for label_path in GROUND_TRUTH.glob("*.json"):
             with open(label_path, encoding="utf-8") as f:
                 data = json.load(f)
+            if "expected_routing_path" in data:
+                continue  # routing label — different schema, no meta required
             assert "meta" in data, f"Missing 'meta' block in {label_path.name}"
 
     def test_ground_truth_covers_corpus_txt_files(self):

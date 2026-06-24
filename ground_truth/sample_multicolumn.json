@@ -1,0 +1,7 @@
+{
+  "_comment": "Phase 2 routing ground truth — two-column layout PDF",
+  "expected_routing_path": "vision",
+  "expected_routing_reason_contains": "multicolumn",
+  "expected_dead_letter": false,
+  "notes": "PDF with FrameBreak-separated left and right columns. pymupdf block analysis detects ≥2 blocks at x0 < 40% page width and ≥2 blocks at x0 > 50% page width → multicolumn → vision (linear extraction would scramble reading order)."
+}

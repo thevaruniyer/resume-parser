@@ -1,0 +1,7 @@
+{
+  "_comment": "Phase 2 routing ground truth — image-only scanned PDF",
+  "expected_routing_path": "vision",
+  "expected_routing_reason_contains": "image_only",
+  "expected_dead_letter": false,
+  "notes": "PDF with no text layer — every page is a rasterised PNG image embedded in a reportlab document. pymupdf identifies the page as image_only."
+}

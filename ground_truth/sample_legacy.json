@@ -1,0 +1,7 @@
+{
+  "_comment": "Phase 2 routing ground truth — legacy .doc stub",
+  "expected_routing_path": "dead_letter",
+  "expected_dead_letter": true,
+  "expected_dead_letter_reason_contains": "libreoffice_not_available",
+  "notes": "File is a .docx-as-.doc stub (no real OLE binary). Without LibreOffice installed, the converter cannot run so the router dead-letters with reason 'doc_libreoffice_not_available'. If LibreOffice is present the file would be converted and re-routed; that path is tested separately with a mock."
+}
