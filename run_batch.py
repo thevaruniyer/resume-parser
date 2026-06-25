@@ -27,6 +27,7 @@ import argparse
 import hashlib
 import json
 import logging
+import os
 import sys
 import time
 from datetime import datetime, timezone
@@ -35,6 +36,16 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
+
+# ---------------------------------------------------------------------------
+# Cloud bootstrap: write rclone config from env var (Railway / any cloud env)
+# ---------------------------------------------------------------------------
+_rclone_config_content = os.environ.get("RCLONE_CONFIG_CONTENT")
+if _rclone_config_content:
+    _rclone_conf_path = Path.home() / ".config" / "rclone" / "rclone.conf"
+    _rclone_conf_path.parent.mkdir(parents=True, exist_ok=True)
+    if not _rclone_conf_path.exists():
+        _rclone_conf_path.write_text(_rclone_config_content)
 
 from config import settings
 from connectors.base import FileRecord, StorageConnector
@@ -353,6 +364,21 @@ def main() -> None:
     print("\n=== Run Summary ===")
     for k, v in summary.items():
         print(f"  {k}: {v}")
+
+    # Upload output back to OneDrive when running in cloud (Railway sets RAILWAY_ENVIRONMENT)
+    if os.environ.get("RAILWAY_ENVIRONMENT"):
+        import subprocess
+        output_path_str = str(Path(args.output).resolve())
+        remote_dest = f"onedrive:{settings.rclone_path.rstrip('/')}/results.xlsx"
+        print(f"\nUploading output to {remote_dest} ...")
+        result = subprocess.run(
+            ["rclone", "copyto", output_path_str, remote_dest],
+            capture_output=True, text=True, timeout=120,
+        )
+        if result.returncode == 0:
+            print(f"Output uploaded to {remote_dest}")
+        else:
+            print(f"Upload failed (exit {result.returncode}): {result.stderr.strip()}")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,9 @@
+{
+  "build": {
+    "builder": "nixpacks"
+  },
+  "deploy": {
+    "startCommand": "uv run python run_batch.py",
+    "restartPolicyType": "never"
+  }
+}
