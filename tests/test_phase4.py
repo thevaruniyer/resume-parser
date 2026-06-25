@@ -445,14 +445,13 @@ class TestEndToEnd:
         """
         from datetime import datetime, timezone
 
-        from config import settings
-        from extraction.gemini_extractor import GeminiExtractor
+        from extraction.fallback_extractor import build_fallback_extractor
         from routing import FileRouter, extract_with_escalation
         from schema import ResumeExtractPayload, ResumeRecord
 
         sink = ExcelSink(wb_path)
         router = FileRouter()
-        extractor = GeminiExtractor(api_key=settings.gemini_api_key)
+        extractor = build_fallback_extractor()
 
         for fname in ("sample_ca_india_synthetic.pdf", "sample_ca_india_synthetic.jpg"):
             path = CORPUS / fname

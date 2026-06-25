@@ -1,0 +1,11 @@
+{
+  "corpus_file": "sample_03_Accountant.txt",
+  "description": "Kevin Frank — 3 education entries, 1 qualification, 2 work experience entries",
+  "key_fields": {
+    "full_name": "Kevin Frank",
+    "emails_must_contain": ["resumekraft.com"],
+    "education_count_min": 2,
+    "qualifications_count_min": 1,
+    "work_experience_count_min": 2
+  }
+}

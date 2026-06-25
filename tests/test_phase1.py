@@ -47,9 +47,8 @@ _SKIP_API = pytest.mark.skipif(
 # ---------------------------------------------------------------------------
 
 def _make_extractor():
-    from config import settings
-    from extraction.gemini_extractor import GeminiExtractor
-    return GeminiExtractor(api_key=settings.gemini_api_key)
+    from extraction.fallback_extractor import build_fallback_extractor
+    return build_fallback_extractor()
 
 
 def _extract_pdf_text(path: Path) -> str:

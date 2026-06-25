@@ -1,0 +1,10 @@
+{
+  "corpus_file": "sample_04_Accountant.txt",
+  "description": "Olivia Ogilvy — garbled OCR; CFA/CPA embedded in education text; qualifications extraction is model-dependent",
+  "key_fields": {
+    "full_name": "Olivia Ogilvy",
+    "education_count_min": 1,
+    "qualifications_count_min": 0,
+    "work_experience_count_min": 2
+  }
+}

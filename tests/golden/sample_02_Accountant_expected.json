@@ -1,0 +1,11 @@
+{
+  "corpus_file": "sample_02_Accountant.txt",
+  "description": "Howard Gerrard — 1 education, 4 work experience entries; OCR garbled email to 'infodayjobcom' (no @ or .), check domain only",
+  "key_fields": {
+    "full_name": "Howard Gerrard",
+    "emails_must_contain": ["dayjob"],
+    "education_count_min": 1,
+    "qualifications_count_min": 0,
+    "work_experience_count_min": 3
+  }
+}

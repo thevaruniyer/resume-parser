@@ -4,7 +4,7 @@ FallbackExtractor — tries extractors in order, moving to the next on quota exh
 Fallback chain:
     Primary    → GeminiExtractor (GEMINI_API_KEY)
     Fallback 1 → GitHub Models GPT-4o (GITHUB_TOKEN)
-    Fallback 2 → OpenRouter google/gemini-2.0-flash-exp:free (OPENROUTER_API_KEY)
+    Fallback 2 → OpenRouter google/gemma-4-31b-it:free (OPENROUTER_API_KEY)
 
 Trigger rules:
     - 429 / quota / rate_limit error → try next extractor
@@ -106,15 +106,15 @@ def build_fallback_extractor() -> FallbackExtractor:
     if settings.openrouter_api_key:
         extractors.append(OpenAICompatExtractor(
             api_key=settings.openrouter_api_key,
-            model="google/gemini-2.0-flash-exp:free",
+            model="google/gemma-4-31b-it:free",
             base_url="https://openrouter.ai/api/v1",
             extra_headers={
                 "HTTP-Referer": "https://github.com/resume-parser",
                 "X-Title": "resume-parser",
             },
-            model_label="openrouter/google/gemini-2.0-flash-exp:free",
+            model_label="openrouter/google/gemma-4-31b-it:free",
         ))
-        logger.debug("FallbackExtractor: OpenRouter Gemini flash added as fallback 2")
+        logger.debug("FallbackExtractor: OpenRouter Gemma-4 added as fallback 2")
     else:
         logger.debug("FallbackExtractor: OPENROUTER_API_KEY not set — skipping OpenRouter fallback")
 

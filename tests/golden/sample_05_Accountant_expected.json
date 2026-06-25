@@ -1,0 +1,11 @@
+{
+  "corpus_file": "sample_05_Accountant.txt",
+  "description": "Stephen Greet — CPA senior accountant; OCR garbled email to 'stephenbeamjobscom' (no @ or .), check for domain only",
+  "key_fields": {
+    "full_name": "Stephen Greet",
+    "emails_must_contain": ["beamjobs"],
+    "education_count_min": 2,
+    "qualifications_count_min": 1,
+    "work_experience_count_min": 2
+  }
+}

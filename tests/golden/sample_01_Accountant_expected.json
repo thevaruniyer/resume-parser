@@ -1,0 +1,10 @@
+{
+  "corpus_file": "sample_01_Accountant.txt",
+  "description": "Garbled OCR text — name expected null/empty; 2 education entries, 2 qualifications",
+  "key_fields": {
+    "full_name_is_null_or_empty": true,
+    "education_count_min": 2,
+    "qualifications_count_min": 2,
+    "work_experience_count_min": 0
+  }
+}

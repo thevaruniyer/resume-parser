@@ -1,0 +1,12 @@
+{
+  "corpus_file": "sample_ca_india_synthetic.pdf",
+  "description": "Synthetic Indian CA — Rahul Mehta, 3 edu entries, 3 qualifications, 1 job, 1 articleship",
+  "key_fields": {
+    "full_name": "Rahul Mehta",
+    "emails_must_contain": ["rahul.mehta@example.com"],
+    "education_count_min": 3,
+    "qualifications_count_min": 3,
+    "work_experience_count_min": 1,
+    "articleship_count_min": 1
+  }
+}
