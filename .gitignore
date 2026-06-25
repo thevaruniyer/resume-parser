@@ -1,8 +1,62 @@
+# Environment and secrets
 .env
+.env.local
+.env.*.local
+
+# Rclone config (contains live OAuth tokens)
+~/.config/rclone/rclone.conf
+rclone.conf
+
+# Output data — generated files, not source
+output_data/results.xlsx
+output_data/dead_letter.jsonl
+output_data/manifests/
+output_data/tmp/
+output_data/.graph_token_cache
+output_data/calibration/
+
+# Test corpus — real/downloaded resume files, not source code
+test_corpus/raw/
+test_corpus/resumeatlas_sample/
+test_corpus/files/*.pdf
+test_corpus/files/*.docx
+test_corpus/files/*.doc
+test_corpus/files/*.jpg
+test_corpus/files/*.jpeg
+test_corpus/files/*.png
+test_corpus/files/*.txt
+
+# Keep synthetic fixtures Claude Code generated — safe to commit
+!test_corpus/files/sample_ca_india_synthetic.*
+!test_corpus/files/sample_scanned.pdf
+!test_corpus/files/sample_garbled.pdf
+!test_corpus/files/sample_multicolumn.pdf
+!test_corpus/files/sample_screenshot.jpg
+!test_corpus/files/sample_legacy.doc
+!test_corpus/files/sample_corrupt.pdf
+
+# Python
 __pycache__/
 *.pyc
-test_corpus/
-.env
-.env
-*.pyc
-*.pyc
+*.pyo
+.venv/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Project-root assets not part of the pipeline source
+Portfolio_Dark_*.svg
+
+# Test corpus generated outputs
+test_corpus/test_output.xlsx
+test_corpus/__pycache__/
+
+# macOS
+.DS_Store
+.AppleDouble
+
+# IDE
+.vscode/
+.idea/
+*.swp

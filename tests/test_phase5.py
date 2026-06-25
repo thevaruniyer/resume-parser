@@ -514,7 +514,7 @@ class TestOrchestration:
         conn = _make_mock_connector(tmp_path, [fr])
 
         with patch("run_batch._build_connector", return_value=conn), \
-             patch("run_batch.GeminiExtractor", return_value=_mock_gemini_extractor()), \
+             patch("run_batch.build_fallback_extractor", return_value=_mock_gemini_extractor()), \
              patch("run_batch.extract_with_escalation", side_effect=_mock_extract_with_escalation):
             summary = run_batch(output_path=wb_path, connector_type="local", verbose=False)
 
@@ -530,7 +530,7 @@ class TestOrchestration:
         conn = _make_mock_connector(tmp_path, [fr])
 
         with patch("run_batch._build_connector", return_value=conn), \
-             patch("run_batch.GeminiExtractor", return_value=_mock_gemini_extractor()), \
+             patch("run_batch.build_fallback_extractor", return_value=_mock_gemini_extractor()), \
              patch("run_batch.extract_with_escalation", side_effect=_mock_extract_with_escalation):
             run_batch(output_path=wb_path, connector_type="local", verbose=False)
 
@@ -546,7 +546,7 @@ class TestOrchestration:
         conn = _make_mock_connector(tmp_path, [fr])
 
         with patch("run_batch._build_connector", return_value=conn), \
-             patch("run_batch.GeminiExtractor", return_value=_mock_gemini_extractor()), \
+             patch("run_batch.build_fallback_extractor", return_value=_mock_gemini_extractor()), \
              patch("run_batch.extract_with_escalation", side_effect=_mock_extract_with_escalation):
             run_batch(output_path=wb_path, connector_type="local", verbose=False)
 
@@ -562,7 +562,7 @@ class TestOrchestration:
         conn = _make_mock_connector(tmp_path, [fr])
 
         with patch("run_batch._build_connector", return_value=conn), \
-             patch("run_batch.GeminiExtractor", return_value=_mock_gemini_extractor()), \
+             patch("run_batch.build_fallback_extractor", return_value=_mock_gemini_extractor()), \
              patch("run_batch.extract_with_escalation", side_effect=_mock_extract_with_escalation):
             run_batch(output_path=wb_path, connector_type="local", verbose=False)
 
@@ -586,7 +586,7 @@ class TestDeadLetter:
         dl_log = tmp_path / "dead_letter.jsonl"
 
         with patch("run_batch._build_connector", return_value=conn), \
-             patch("run_batch.GeminiExtractor"), \
+             patch("run_batch.build_fallback_extractor"), \
              patch("run_batch.extract_with_escalation", side_effect=always_raise), \
              patch("run_batch._DEAD_LETTER_LOG", dl_log):
             summary = run_batch(output_path=wb_path, connector_type="local", verbose=False)
@@ -607,7 +607,7 @@ class TestDeadLetter:
             raise RuntimeError("mock extraction failure")
 
         with patch("run_batch._build_connector", return_value=conn), \
-             patch("run_batch.GeminiExtractor", return_value=_mock_gemini_extractor()), \
+             patch("run_batch.build_fallback_extractor", return_value=_mock_gemini_extractor()), \
              patch("run_batch.extract_with_escalation", side_effect=always_raise):
             run_batch(output_path=wb_path, connector_type="local", verbose=False)
 
@@ -629,7 +629,7 @@ class TestIdempotency:
         conn = _make_mock_connector(tmp_path, [fr])
 
         with patch("run_batch._build_connector", return_value=conn), \
-             patch("run_batch.GeminiExtractor", return_value=_mock_gemini_extractor()), \
+             patch("run_batch.build_fallback_extractor", return_value=_mock_gemini_extractor()), \
              patch("run_batch.extract_with_escalation", side_effect=_mock_extract_with_escalation):
             run_batch(output_path=wb_path, connector_type="local", verbose=False)
 
@@ -643,7 +643,7 @@ class TestIdempotency:
         conn2.delta.return_value = []  # nothing new
 
         with patch("run_batch._build_connector", return_value=conn2), \
-             patch("run_batch.GeminiExtractor", return_value=_mock_gemini_extractor()), \
+             patch("run_batch.build_fallback_extractor", return_value=_mock_gemini_extractor()), \
              patch("run_batch.extract_with_escalation", side_effect=_mock_extract_with_escalation):
             summary2 = run_batch(output_path=wb_path, connector_type="local", verbose=False)
 

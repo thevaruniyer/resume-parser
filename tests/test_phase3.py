@@ -236,6 +236,32 @@ class TestPhoneValidation:
         assert not any("invalid_phone" in r for r in result["meta"]["review_reasons"])
 
 
+class TestPhoneNormalization:
+    def test_us_number_does_not_get_india_prefix(self):
+        from normalize.phones import normalize_phone
+        result = normalize_phone("+0 (000) 111 1111", country="United States")
+        assert result is not None
+        assert not result.startswith("+91")
+
+    def test_indian_mobile_no_country_gets_prefix(self):
+        from normalize.phones import normalize_phone
+        assert normalize_phone("9876543210") == "+91-98765-43210"
+
+    def test_indian_mobile_with_india_country_gets_prefix(self):
+        from normalize.phones import normalize_phone
+        assert normalize_phone("9876543210", country="India") == "+91-98765-43210"
+
+    def test_indian_mobile_with_us_country_no_prefix(self):
+        from normalize.phones import normalize_phone
+        result = normalize_phone("9876543210", country="United States")
+        assert result == "9876543210"  # digits only, no +91
+
+    def test_number_starting_5_no_country_no_prefix(self):
+        from normalize.phones import normalize_phone
+        result = normalize_phone("5123456789")
+        assert result == "5123456789"  # 5 is not a valid Indian mobile prefix
+
+
 # ---------------------------------------------------------------------------
 # Low-confidence → needs_review
 # ---------------------------------------------------------------------------

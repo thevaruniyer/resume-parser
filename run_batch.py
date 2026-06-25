@@ -38,7 +38,7 @@ if str(ROOT) not in sys.path:
 
 from config import settings
 from connectors.base import FileRecord, StorageConnector
-from extraction.gemini_extractor import GeminiExtractor
+from extraction.fallback_extractor import build_fallback_extractor
 from normalize import normalize_record
 from output.excel_sink import ExcelSink
 from routing import ExtractionPath, FileRouter, extract_with_escalation
@@ -141,7 +141,7 @@ def run_batch(
 
     sink = ExcelSink(output_path)
     router = FileRouter()
-    extractor = GeminiExtractor(api_key=settings.gemini_api_key)
+    extractor = build_fallback_extractor()
 
     # Delta: which files are new or changed?
     manifest = connector.load_manifest()

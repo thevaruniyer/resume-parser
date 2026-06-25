@@ -53,6 +53,14 @@ class Settings:
     def connector(self) -> str:
         return _optional("CONNECTOR", "local") or "local"
 
+    @property
+    def github_token(self) -> str | None:
+        return _optional("GITHUB_TOKEN") or None
+
+    @property
+    def openrouter_api_key(self) -> str | None:
+        return _optional("OPENROUTER_API_KEY") or None
+
     # Model routing
     gemini_model: str = "gemini-2.5-flash"
     qwen_model: str = "qwen-vl-plus"

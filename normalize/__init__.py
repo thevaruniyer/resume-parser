@@ -107,9 +107,10 @@ def normalize_record(record: dict) -> dict:
     record = copy.deepcopy(record)
     record = _strip_strings(record)
 
-    # Phones: normalize to +91-XXXXX-XXXXX for Indian numbers
+    # Phones: normalize to +91-XXXXX-XXXXX for Indian numbers only
     phones = record.get("phones") or []
-    record["phones"] = [normalize_phone(p) for p in phones if p]
+    country = (record.get("location") or {}).get("country") or ""
+    record["phones"] = [normalize_phone(p, country=country) for p in phones if p]
 
     # Work experience: normalize dates, derive duration + is_current
     current_employer: Optional[str] = None
