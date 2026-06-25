@@ -41,6 +41,18 @@ class Settings:
         # Set DASHSCOPE_API_KEY in .env before using QwenExtractor.
         return _optional("DASHSCOPE_API_KEY")
 
+    @property
+    def rclone_remote(self) -> str | None:
+        return _optional("RCLONE_REMOTE") or None
+
+    @property
+    def rclone_path(self) -> str | None:
+        return _optional("RCLONE_PATH") or None
+
+    @property
+    def connector(self) -> str:
+        return _optional("CONNECTOR", "local") or "local"
+
     # Model routing
     gemini_model: str = "gemini-2.5-flash"
     qwen_model: str = "qwen-vl-plus"

@@ -16,6 +16,8 @@ from typing import Any, Callable, Optional
 # ---------------------------------------------------------------------------
 
 COLUMN_MAP: dict[str, str] = {
+    # ---- FILE IDENTIFIER (always column A) ----------------------------------
+    "filename":          "Filename",
     # ---- IDENTITY -----------------------------------------------------------
     "full_name":         "Full Name",
     "first_name":        "First Name",
@@ -162,6 +164,17 @@ def _current_job(r: dict) -> dict:
     return {}
 
 
+def _most_recent_job(r: dict) -> dict:
+    """Return is_current=True job first; else job with highest start_date."""
+    jobs = _we_list(r)
+    if not jobs:
+        return {}
+    current = [j for j in jobs if j.get("is_current")]
+    if current:
+        return current[0]
+    return max(jobs, key=lambda j: j.get("start_date") or "")
+
+
 _CA_LEVEL_ORDER = {"Foundation": 1, "Intermediate": 2, "Final": 3}
 
 
@@ -239,6 +252,8 @@ def _languages_str(r: dict) -> Optional[str]:
 # ---------------------------------------------------------------------------
 
 _EXTRACTORS: dict[str, Callable[[dict], Any]] = {
+    # FILE IDENTIFIER
+    "filename": lambda r: _g(r, "meta", "source_file"),
     # IDENTITY
     "full_name":      lambda r: r.get("full_name"),
     "first_name":     lambda r: r.get("first_name"),
@@ -272,13 +287,13 @@ _EXTRACTORS: dict[str, Callable[[dict], Any]] = {
         json.dumps(_we_list(r), ensure_ascii=False, separators=(",", ":"))
         if _we_list(r) else None
     ),
-    "job1_title":           lambda r: _we_list(r)[0].get("designation") if _we_list(r) else None,
-    "job1_company":         lambda r: _we_list(r)[0].get("company") if _we_list(r) else None,
-    "job1_start":           lambda r: _we_list(r)[0].get("start_date") if _we_list(r) else None,
-    "job1_end":             lambda r: _we_list(r)[0].get("end_date") if _we_list(r) else None,
-    "job1_duration_months": lambda r: _we_list(r)[0].get("duration_months") if _we_list(r) else None,
-    "job1_type":            lambda r: _we_list(r)[0].get("employment_type") if _we_list(r) else None,
-    "job1_location":        lambda r: _loc_str(_we_list(r)[0].get("location")) if _we_list(r) else None,
+    "job1_title":           lambda r: _most_recent_job(r).get("designation"),
+    "job1_company":         lambda r: _most_recent_job(r).get("company"),
+    "job1_start":           lambda r: _most_recent_job(r).get("start_date"),
+    "job1_end":             lambda r: _most_recent_job(r).get("end_date"),
+    "job1_duration_months": lambda r: _most_recent_job(r).get("duration_months"),
+    "job1_type":            lambda r: _most_recent_job(r).get("employment_type"),
+    "job1_location":        lambda r: _loc_str(_most_recent_job(r).get("location")),
     # EDUCATION
     "education_count":            lambda r: len(_edu_list(r)),
     "education_summary":          _edu_summary,

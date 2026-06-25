@@ -118,6 +118,10 @@ def _extract_for_tier(
     """Extract using the given tier's strategy."""
     if tier == ExtractionPath.VISION:
         image_paths = _get_image_paths(path)
+        if not image_paths:
+            raise ExtractionError(
+                f"no_images_for_vision: {path.name} has no renderable images"
+            )
         return extractor.extract(schema=schema, images=image_paths)
 
     elif tier == ExtractionPath.TEXT:
